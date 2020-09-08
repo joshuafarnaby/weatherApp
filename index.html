@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="loader.css" />
+    <link rel="stylesheet" href="form.css" />
+    <!-- <script src="app.js" defer></script>
+    <script src="weather.js" defer></script> -->
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-card">
+        <div class="weather-main">
+          <div class="co-ordinates">
+            <h4>Lat: <span id="latitude"></span></h4>
+            <h4>Lon: <span id="longitude"></span></h4>
+          </div>
+          <div class="city-name">
+            <h2 id="city"></h2>
+          </div>
+          <div class="weather-summary">
+            <h4 id="summary">Partly Cloudy</h4>
+          </div>
+          <div class="icon-container">
+            <img id="weather-icon" />
+          </div>
+          <div class="current-temp-container">
+            <h4>Current Temp: <span id="current-temp"></span></h4>
+          </div>
+        </div>
+        <div class="weather-additional">
+          <div class="info-box">
+            <span>Feels Like</span>
+            <h4 id="feels-like"></h4>
+          </div>
+          <div class="info-box">
+            <span>Humidity</span>
+            <h4 id="humidity"></h4>
+          </div>
+          <div class="info-box">
+            <span>Min Temp</span>
+            <h4 id="min-temp"></h4>
+          </div>
+          <div class="info-box">
+            <span>Max Temp</span>
+            <h4 id="max-temp"></h4>
+          </div>
+          <div class="info-box">
+            <span>Sunrise</span>
+            <h4 id="sunrise"></h4>
+          </div>
+          <div class="info-box">
+            <span>Sunset</span>
+            <h4 id="sunset">2050</h4>
+          </div>
+          <div class="info-box">
+            <span>Pressure</span>
+            <h4 id="pressure"></h4>
+          </div>
+          <div class="info-box">
+            <span>Visibility</span>
+            <h4 id="visibility"></h4>
+          </div>
+          <div class="info-box">
+            <span>Wind Speed</span>
+            <h4 id="wind-speed"></h4>
+          </div>
+          <div class="info-box">
+            <span>Wind Direction</span>
+            <h4 id="wind-direction"></h4>
+          </div>
+        </div>
+      </div>
+
+      <div id="loader" class="loader-container">
+        <h2>UK Weather Tracker</h2>
+        <div class="spin-loader"></div>
+        <span id="error-message"></span>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <form id="form" class="form">
+        <input
+          type="text"
+          name="new-city"
+          id="new-city"
+          autocomplete="off"
+          required
+        />
+        <button type="submit">Change City</button>
+      </form>
+    </div>
+
+    <script type="module" src="app.js"></script>
+    <script type="module" src="weather.js"></script>
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>
