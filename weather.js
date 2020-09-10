@@ -5,22 +5,42 @@ export class Weather {
   }
 
   // improve this method - error handling
+  // getCityFromList(city) {
+  //   return new Promise((resolve, reject) => {
+  //     fetch('./city.list.json')
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         data.forEach((obj) => {
+  //           let targetCity = city.toLowerCase();
+  //           let currentCity = obj.name.toLowerCase();
+
+  //           if (currentCity === targetCity && obj.country === 'GB') {
+  //             console.log(obj);
+  //             resolve(obj);
+  //             // return;
+  //           }
+  //         });
+  //       });
+  //     // .catch((error) => reject(error));
+  //   });
+  // }
+
   getCityFromList(city) {
     return new Promise((resolve, reject) => {
       fetch('./city.list.json')
         .then((res) => res.json())
         .then((data) => {
-          data.forEach((obj) => {
+          for (const obj of data) {
             let targetCity = city.toLowerCase();
             let currentCity = obj.name.toLowerCase();
 
             if (currentCity === targetCity && obj.country === 'GB') {
+              console.log(obj);
               resolve(obj);
-              return;
             }
-          });
-        })
-        .catch((error) => reject(error));
+          }
+          reject('No match for requested city: Please try again');
+        });
     });
   }
 
@@ -35,7 +55,7 @@ export class Weather {
       )
         .then((res) => res.json())
         .then((data) => {
-          if (data.message === 'Internal error') {
+          if (data.cod !== 200) {
             reject(data);
           } else {
             resolve(data);

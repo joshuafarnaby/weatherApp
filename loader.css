@@ -25,6 +25,7 @@
   border: 3px solid lightgray;
   border-top-color: #fff;
   animation: spinner 1s linear infinite;
+  /* animation-play-state: paused; */
 }
 
 @keyframes spinner {

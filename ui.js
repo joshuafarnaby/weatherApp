@@ -95,12 +95,28 @@ export class UI {
     }
   }
 
-  activateLoader() {
+  displayErrorMessage(msg) {
+    this.errorMessage.innerHTML = msg;
+  }
+
+  removeErrorMessage() {
+    this.errorMessage.innerHTML = '';
+  }
+
+  showLoader() {
     this.loader.style.opacity = '1';
   }
 
-  deactivateLoader() {
+  removeLoader() {
     this.loader.style.opacity = '0';
+  }
+
+  playLoader() {
+    document.querySelector('.spin-loader').style.animationPlayState = 'running';
+  }
+
+  pauseLoader() {
+    document.querySelector('.spin-loader').style.animationPlayState = 'paused';
   }
 
   persistCityToLocalStorage(city) {
